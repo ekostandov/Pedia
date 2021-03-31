@@ -1,0 +1,28 @@
+mixin formStep(step)
+  .step 
+    h2.step__title #{step.title}
+    p.step__question #{step.question}
+    .options-container 
+      if step.type === 'radio'
+        for option in step.options
+          label.form-option
+            svg.form-option__img(class=`form-option__img_${option.img}`)
+              use(xlink:href=`/images/sprite.svg#${option.img}`)
+            input.form-option__radio(type="radio" name=`${option.name}` value=`${option.value}`)
+            span.form-option__title #{option.title}
+            a.form-option__info(href="#") Learn more
+      if step.type === 'input' 
+        for option in step.options 
+          .form-option
+            svg.form-option__img(class=`form-option__img_${option.img}`)
+              use(xlink:href=`/images/sprite.svg#${option.img}`)
+            p.form-option__field 
+              input.text-field(id=`input-${option.name}` type="text" name=`${option.name}`)
+              label.text-field__label(for=`input-${option.name}`) #{option.title}
+      if step.type === 'price'
+        .form-result
+          svg.form-result__img(class=`form-result__img_price`)
+            use(xlink:href=`/images/sprite.svg#price`)
+          span.form-result__info #{step.info}
+
+

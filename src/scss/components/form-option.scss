@@ -1,0 +1,124 @@
+.form-option {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 3rem;
+
+  @include respond(tab-land) {
+    width: auto;
+    height: 31rem;
+    margin-top: 0;
+    &:not(:last-child) {
+      margin-right: 10rem;
+    }
+  }
+
+  &__img {
+    // fill: $color-primary-light;
+
+    &_square {
+      width: 9.6rem;
+      height: 9.8rem;
+    }
+    &_stories-one {
+      width: 9.5rem;
+      height: 6.8rem;
+    }
+    &_stories-two {
+      width: 9.5rem;
+      height: 9.4rem;
+    }
+    &_stories-three {
+      width: 10.6rem;
+      height: 11.7rem;
+    }
+    &_garage-no {
+      width: 7.5rem;
+      height: 8.5rem;
+    }
+    &_garage-detached {
+      width: 15.4rem;
+      height: 8.5rem;
+    }
+    &_garage-attached {
+      width: 13.3rem;
+      height: 8.5rem;
+    }
+    &_garage-attached-in {
+      width: 11.9rem;
+      height: 10.4rem;
+    }
+    &_roof-simple {
+      width: 8rem;
+      height: 7.3rem;
+    }
+    &_roof-moderate {
+      width: 10.1rem;
+      height: 9rem;
+    }
+    &_roof-complex {
+      width: 13.2em;
+      height: 9.4rem;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.7rem;
+  }
+
+  &__radio {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + .form-option__title {
+      color: $color-white;
+      background: $color-tertiary;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $barlow;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: $color-primary;
+    border-radius: 5px;
+    padding: 0.7rem 1.4rem;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem 0;
+
+    @include respond(tab-land) {
+      margin: 3rem 0;
+      font-size: 2.1rem;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .form-option__radio:not(:checked) + .form-option__title {
+    background: $color-secondary-light;
+  }
+
+  &__info {
+    text-decoration: none;
+    font-family: $barlow;
+    font-weight: 500;
+    color: $color-primary-light;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

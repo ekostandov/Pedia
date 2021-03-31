@@ -1,0 +1,21 @@
+- var navigation= ['Home', 'How it works', 'About us', 'Products', 'Contact us']
+
+include ../mixins/mainNavigation
+
+header.header 
+  .container 
+    a.logo(href="/")
+      svg.logo__img 
+        use(xlink:href="/images/sprite.svg#logo")
+      h1.logo__name ProPedia
+    span.nav__cover
+    nav.nav
+      ul.nav__list
+        for title in navigation 
+          +menuLink(title)
+    .nav__item.nav__item_avatar
+      a.nav__link(href="/") Profile
+      span.nav__avatar
+        img(alt=avatar src="#")
+    .nav__button
+      span.nav__icon

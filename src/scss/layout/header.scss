@@ -1,0 +1,195 @@
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  &__img {
+    width: 3rem;
+    height: 2.52rem;
+
+    @include respond(tab-port) {
+      width: 4.51rem;
+      height: 3.79rem;
+    }
+  }
+
+  &__name {
+    font-size: 2.2rem;
+    margin-left: 0.4rem;
+    letter-spacing: -0.03em;
+    color: $color-primary;
+    @include respond(tab-port) {
+      font-size: 3.4rem;
+      margin-left: 0.6rem;
+    }
+  }
+}
+
+.nav {
+  display: none;
+  z-index: 2;
+
+  @include respond(tab-land) {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 4;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(:first-child):not(.nav__item_avatar) {
+      margin-left: 5.63rem;
+    }
+
+    &_avatar {
+      margin-left: auto;
+
+      @include respond(tab-land) {
+        margin-left: 5.63rem;
+      }
+    }
+  }
+
+  &__link {
+    color: $color-primary-light;
+    font-size: 2.4rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    width: 100%;
+
+    @include respond(tab-land) {
+      font-size: 1.4rem;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__avatar {
+    width: 2.9rem;
+    height: 2.9rem;
+    background: $color-tertiary;
+    border-radius: 50px;
+    margin-left: 1.6rem;
+    flex-shrink: 0;
+
+    & img {
+      /*styles for future image
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      */
+      display: none;
+    }
+  }
+
+  &.active {
+    display: block;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    background: $color-secondary-light;
+    z-index: 4;
+    height: calc(100vh - 10rem);
+
+    & .nav__list {
+      flex-wrap: wrap;
+    }
+
+    & .nav__item {
+      width: 100%;
+      text-align: right;
+      padding-right: 2.5rem;
+      padding-top: 2rem;
+    }
+
+    & .nav__link {
+      position: relative;
+    }
+  }
+}
+
+// Navigation button
+.nav {
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.8rem;
+    position: relative;
+    z-index: 4;
+
+    @include respond(tab-land) {
+      display: none;
+    }
+
+    &.active {
+      .nav__icon {
+        background-color: transparent;
+      }
+
+      .nav__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+
+      .nav__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  &__icon {
+    position: relative;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-primary;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

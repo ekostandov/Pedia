@@ -1,0 +1,58 @@
+.props {
+  flex: 0 0 29.4rem;
+  background: $color-secondary-light;
+  border-radius: 10px;
+  list-style: none;
+  padding: 2.7rem 2.5rem;
+
+  &__type {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-tertiary-light;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      margin-bottom: 2.6rem;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 0.8rem;
+      width: 0.8rem;
+      background: #d3e7f0;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 2.2rem;
+    }
+
+    &_filled::before {
+      background: $color-tertiary;
+    }
+  }
+
+  &__value {
+    display: block;
+    width: 100%;
+    margin-top: 0.2rem;
+    padding-left: 2.9rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: rgba($color-primary-light, 0.5);
+
+    &_filled {
+      color: $color-primary;
+    }
+  }
+
+  &__default {
+    display: block;
+    width: 1.2rem;
+    height: 0.3rem;
+    border-radius: 5px;
+    background: $color-primary-light;
+    opacity: 0.5;
+  }
+}

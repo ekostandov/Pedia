@@ -1,0 +1,24 @@
+.text-field {
+  height: 4.4rem;
+  width: 15.4rem;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid transparent;
+  background: $color-secondary-light;
+  display: inline-block;
+  font-family: $roboto;
+  font-size: 1.8rem;
+  text-align: center;
+  color: $color-primary-light2;
+
+  &:focus {
+    border-bottom: 2px solid #135c7d;
+  }
+
+  &__label {
+    margin-top: 2rem;
+    color: $color-primary-light;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,12 @@
+include ../configs/formStepsConfigs.pug
+include ../mixins/formStep
+include ../mixins/clouds
+
+form#form.form
+  +clouds
+  .form__steps
+    for step in steps
+      +formStep(step)
+  .form-buttons
+    button.btn.btn_secondary(type="button" id="btn-back") Back
+    button.btn.btn_primary(type="button" id="btn-next") Next
